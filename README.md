@@ -9,8 +9,8 @@
 
 ## Labs
 
-| Lab | Topic | Status |
-|-----|-------|--------|
+| Lab | Topic | 
+|-----|-------|
 | [Lab 1](Labs/Lab1-Cyber-Threat-Intelligence/lab1.md) | MITRE ATT&CK & Cyber Threat Intelligence — Volt Typhoon 
 | [Lab 2](Labs/Lab2-Anomaly-Detection/) | Anomaly Detection (ML) 
 | [Lab 3](Labs/Lab3-LLM-Agent/) | LLM Agent with Tool Use 
