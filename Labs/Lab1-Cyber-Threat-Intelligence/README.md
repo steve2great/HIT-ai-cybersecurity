@@ -13,4 +13,6 @@
 
 ## Status
 
-⏳ In progress
+✅ Complete — see [lab1.md](lab1.md)
+
+**Chosen report:** Microsoft Threat Intelligence — *Volt Typhoon targets US critical infrastructure with living-off-the-land techniques* (May 2023)
