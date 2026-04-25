@@ -25,7 +25,3 @@
 - AG2 (AutoGen), Chainlit
 - Docker & Docker Compose
 - MITRE ATT&CK Framework
-
----
-
-> Built with assistance from [Claude](https://claude.ai) (Anthropic)
