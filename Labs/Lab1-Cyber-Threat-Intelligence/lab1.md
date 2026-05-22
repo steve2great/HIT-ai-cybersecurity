@@ -1,7 +1,7 @@
 # Lab 1 — Cyber Threat Intelligence: Volt Typhoon
 
 ## 1. Group Members
-- Stav Hefetz
+- Stav Hefetz *(individual submission — permitted by the course email of 21 April: "You may work in groups of 2-3 students, or individually if needed.")*
 
 ## 2. Source CTI Report
 **Microsoft Threat Intelligence — *"Volt Typhoon targets US critical infrastructure with living-off-the-land techniques"*** (May 24, 2023)
