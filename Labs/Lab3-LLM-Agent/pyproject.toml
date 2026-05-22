@@ -1,0 +1,11 @@
+[project]
+name = "lab3-cti-triage-agent"
+version = "0.1.0"
+description = "Lab 3 — CTI Triage Agent: AG2 + Chainlit with Groq (OpenAI-compatible API)"
+readme = "README.md"
+requires-python = ">=3.11"
+
+dependencies = [
+    "ag2[openai]>=0.9",
+    "chainlit>=2.0",
+]
