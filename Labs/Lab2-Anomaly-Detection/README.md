@@ -1,6 +1,6 @@
-# Lab 2 — Anomaly Detection
+# Lab 2 - Anomaly Detection
 
-📓 **Deliverable:** [`lab2.ipynb`](lab2.ipynb) — fully executed notebook with embedded plots.
+📓 **Deliverable:** [`lab2.ipynb`](lab2.ipynb) - fully executed notebook with embedded plots.
 
 ---
 
@@ -9,7 +9,7 @@
 | Choice | Value | Why |
 |---|---|---|
 | Dataset | Synthetic (Faker + numpy) | Full control over the attack/normal mix; no download or licence concerns |
-| MITRE technique modeled | [T1110 — Brute Force](https://attack.mitre.org/techniques/T1110/) | Maps cleanly to authentication telemetry; both noisy and stealthy variants exist in the wild |
+| MITRE technique modeled | [T1110 - Brute Force](https://attack.mitre.org/techniques/T1110/) | Maps cleanly to authentication telemetry; both noisy and stealthy variants exist in the wild |
 | Volume | 10 000 events, 3 % anomalies | Within the 1-5 % band the lab requires for unsupervised detection |
 | Detection model | Isolation Forest (`n_estimators=200`, `contamination=0.03`) | Required by the lab; well-suited to mixed numeric + binary feature space |
 | Projection | PCA, 2 components | Deterministic, fast, no extra deps; preserves enough variance to make the anomaly clusters visible |
@@ -26,7 +26,7 @@
 | `user_is_known` | binary | `username ∈ legitimate-user list` |
 | `ip_is_known` | binary | `source_ip ∈ legitimate-IP list` |
 
-`username` and `source_ip` are deliberately **not** one-hot encoded — they are
+`username` and `source_ip` are deliberately **not** one-hot encoded - they are
 high-cardinality identifiers, and one-hot encoding would both explode the
 feature space and prevent the model from generalising across new accounts
 or addresses. Reducing them to a *known-population* boolean mirrors what a
@@ -37,9 +37,9 @@ signal on previously-unseen IPs.
 
 To make the detection problem realistic, anomalies are split between:
 
-- **Loud (~75 %)** — off-hours, unknown user, unknown IP, 8-40 failed attempts,
+- **Loud (~75 %)** - off-hours, unknown user, unknown IP, 8-40 failed attempts,
   very short sessions. Easy for any unsupervised detector.
-- **Stealthy (~25 %)** — *credential stuffing* in working hours against
+- **Stealthy (~25 %)** - *credential stuffing* in working hours against
   **known** usernames, only 3-6 failed attempts each. Designed to overlap
   with typo-prone legitimate users so that perfect detection is impossible.
 

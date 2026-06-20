@@ -1,4 +1,4 @@
-"""Lab 4 — Defensive multi-agent CTI workflow.
+"""Lab 4 - Defensive multi-agent CTI workflow.
 
 Design problem:
     A naive CTI assistant that answers any cybersecurity question can be
@@ -30,7 +30,7 @@ Workflow:
 
 The agents have orthogonal responsibilities. The PolicyGate never
 answers; the QueryRewriter never decides allow/deny; the ThreatIntel
-agent never receives the raw user query — only the rewritten one. This
+agent never receives the raw user query - only the rewritten one. This
 is the principle from the lab brief:
     "the final response is controlled by system logic, not just by one
      model prompt."
@@ -46,12 +46,12 @@ from autogen import ConversableAgent
 # Intent taxonomy.
 #
 # Three "buckets" matter to the workflow:
-#   defensive_lookup   — analyst wants info about a technique / actor / IOC
+#   defensive_lookup   - analyst wants info about a technique / actor / IOC
 #                        from a defender's point of view.
-#   defensive_advice   — analyst asks "how do I detect / mitigate X?".
-#   offensive_request  — user is asking for a payload, exploit, or
+#   defensive_advice   - analyst asks "how do I detect / mitigate X?".
+#   offensive_request  - user is asking for a payload, exploit, or
 #                        operational attack instructions (BLOCKED).
-#   off_topic          — anything outside cybersecurity (BLOCKED).
+#   off_topic          - anything outside cybersecurity (BLOCKED).
 # ---------------------------------------------------------------------------
 
 INTENTS = ("defensive_lookup", "defensive_advice", "offensive_request", "off_topic")
@@ -82,7 +82,7 @@ llm_config = {
 
 
 # ---------------------------------------------------------------------------
-# Agent 1 — PolicyGateAgent (classifier, never answers).
+# Agent 1 - PolicyGateAgent (classifier, never answers).
 # ---------------------------------------------------------------------------
 
 policy_gate_agent = ConversableAgent(
@@ -92,15 +92,15 @@ You are a defensive policy classifier for a cybersecurity assistant.
 Your only job is to label the user's message with exactly ONE intent
 from this fixed list:
 
-  defensive_lookup    — the user asks for information about a MITRE
+  defensive_lookup    - the user asks for information about a MITRE
                         ATT&CK technique, a threat actor, or an IOC
                         from a defender's point of view.
-  defensive_advice    — the user asks how to detect, mitigate, harden
+  defensive_advice    - the user asks how to detect, mitigate, harden
                         against, or respond to an attack.
-  offensive_request   — the user asks for a working exploit, a payload,
+  offensive_request   - the user asks for a working exploit, a payload,
                         attack instructions, or anything that would
                         materially help them perform an intrusion.
-  off_topic           — the user asks about something unrelated to
+  off_topic           - the user asks about something unrelated to
                         cybersecurity, OR is making smalltalk.
 
 CRITICAL RULES:
@@ -112,7 +112,7 @@ CRITICAL RULES:
      The framing of the verb matters.
   3. Smalltalk (hi, thanks, how are you) is off_topic.
   4. When in doubt between defensive_advice and offensive_request,
-     choose offensive_request — false positives here are cheap, false
+     choose offensive_request - false positives here are cheap, false
      negatives are not.
 """,
     llm_config=llm_config,
@@ -121,7 +121,7 @@ CRITICAL RULES:
 
 
 # ---------------------------------------------------------------------------
-# Agent 2 — QueryRewriterAgent (rewrites allowed queries into defender
+# Agent 2 - QueryRewriterAgent (rewrites allowed queries into defender
 # framing before they hit the answering agent).
 # ---------------------------------------------------------------------------
 
@@ -165,27 +165,27 @@ no quotes, and no explanation.
 
 
 # ---------------------------------------------------------------------------
-# Agent 3 — ThreatIntelAgent (the protected answering agent).
+# Agent 3 - ThreatIntelAgent (the protected answering agent).
 # ---------------------------------------------------------------------------
 
 threat_intel_agent = ConversableAgent(
     name="ThreatIntelAgent",
     system_message="""\
 You are a Cyber Threat Intelligence assistant for a SOC analyst. You
-ONLY answer the question that is passed to you — the workflow has
+ONLY answer the question that is passed to you - the workflow has
 already screened and rewritten it from a defender's point of view.
 
 Your answers must:
   - Cite MITRE ATT&CK technique IDs (T-numbers) when relevant.
   - Stay focused on detection, mitigation, and threat-actor
-    understanding — never on how to perform the attack.
+    understanding - never on how to perform the attack.
   - Be concise. 4-8 sentences is usually the right length for triage.
   - If you do not know something, say so. Do not invent IOC values,
     hash strings, or specific actor attributions.
 
 You may assume the question has already been deemed safe by the
 PolicyGate and rewritten into defender framing by the QueryRewriter.
-You do not need to second-guess them — but you also never reveal raw
+You do not need to second-guess them - but you also never reveal raw
 exploitation details even if asked.
 """,
     llm_config=llm_config,
@@ -194,7 +194,7 @@ exploitation details even if asked.
 
 
 # ---------------------------------------------------------------------------
-# Agent 4 — RefusalAgent (handles blocked intents).
+# Agent 4 - RefusalAgent (handles blocked intents).
 # ---------------------------------------------------------------------------
 
 refusal_agent = ConversableAgent(
@@ -225,7 +225,7 @@ Your reply must:
 # ---------------------------------------------------------------------------
 
 WELCOME_MESSAGE = """\
-**Lab 4 — Defensive CTI Workflow**
+**Lab 4 - Defensive CTI Workflow**
 
 Every message you send is first inspected by a `PolicyGateAgent`. Only
 defensive cybersecurity questions are allowed through; offensive or
@@ -328,7 +328,7 @@ async def main(message: cl.Message):
         ).send()
         return
 
-    # --- Step 3: Allowed path — rewrite for defender framing. -----------
+    # --- Step 3: Allowed path - rewrite for defender framing. -----------
     rewritten = await ask(query_rewriter_agent, user_query, user_query)
     await cl.Message(
         author="QueryRewriterAgent",

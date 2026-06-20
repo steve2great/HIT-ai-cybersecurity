@@ -34,3 +34,6 @@ Thumbs.db
 *.pem
 .env*
 !.env.example
+
+# Submission archive (delivered via OneDrive, not tracked in git)
+*.zip

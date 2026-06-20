@@ -1,0 +1,52 @@
+[project]
+# List of environment variables to be provided by each user to use the app.
+user_env = []
+
+# Duration (in seconds) during which the session is saved when the connection is lost
+session_timeout = 3600
+
+# Duration (in seconds) of the user session expiry
+user_session_timeout = 1296000  # 15 days
+
+# Enable third parties caching (e.g., LangChain cache)
+cache = false
+
+# Authorized origins
+allow_origins = ["*"]
+
+[features]
+# Process and display HTML in messages.
+unsafe_allow_html = false
+
+# Process and display mathematical expressions.
+latex = false
+
+# Enable rendering of user messages markdown
+user_message_markdown = true
+
+# Allow users to edit their own messages
+edit_message = true
+
+# SOC-Copilot only accepts JSON auth events pasted into the chat (see README).
+# File uploads are intentionally disabled - there is no file ingestion path.
+[features.spontaneous_file_upload]
+    enabled = false
+
+[features.audio]
+    enabled = false
+
+[features.mcp]
+    enabled = false
+
+[UI]
+# Name of the assistant shown in the header.
+name = "SOC-Copilot"
+
+# Chain of Thought (CoT) display mode. "full" shows the detector/mapper/LLM Steps.
+cot = "full"
+
+# Prompt confirmation on clicking 'New Chat'
+confirm_new_chat = false
+
+[meta]
+generated_by = "2.11.1"

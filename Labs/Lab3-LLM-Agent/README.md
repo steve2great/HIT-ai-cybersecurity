@@ -1,8 +1,8 @@
-# Lab 3 — CTI Triage Agent
+# Lab 3 - CTI Triage Agent
 
 **Student:** Stav Hefetz
 **Framework:** [AG2](https://docs.ag2.ai/) (`ConversableAgent`) + [Chainlit](https://docs.chainlit.io/)
-**LLM provider:** Groq (`qwen/qwen3-32b`) — any OpenAI-compatible service works
+**LLM provider:** Groq (`qwen/qwen3-32b`) - any OpenAI-compatible service works
 
 ## What this lab demonstrates
 
@@ -14,7 +14,7 @@ A single LLM agent that helps a SOC analyst do **CTI triage**:
 | *"Is 185.243.115.84 suspicious?"* | `check_ioc` |
 | *"Tell me about Volt Typhoon"* | `get_threat_actor` |
 
-The agent must call a tool to answer factual questions — the system prompt
+The agent must call a tool to answer factual questions - the system prompt
 explicitly forbids hallucinated ATT&CK / IOC / actor data. Every fact is
 traceable in the Chainlit UI as an expandable Step.
 

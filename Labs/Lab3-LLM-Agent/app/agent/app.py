@@ -1,11 +1,11 @@
-"""Lab 3 — CTI Triage Agent.
+"""Lab 3 - CTI Triage Agent.
 
 A single LLM agent (AG2 ConversableAgent) that helps a SOC analyst do
 first-pass triage by looking up MITRE ATT&CK techniques, threat actors,
 and Indicators of Compromise in a small local database.
 
 The agent must call a tool to answer factual questions. Pure-text answers
-are not enough — Chainlit shows every tool call as an expandable Step.
+are not enough - Chainlit shows every tool call as an expandable Step.
 """
 
 import json
@@ -122,7 +122,7 @@ MITRE_TECHNIQUES: Dict[str, Dict] = {
 }
 
 # Quick lookup of "tool-style" command fragments to a technique ID. This is
-# how an analyst would actually ask: "I saw `ntdsutil` in a log — what is
+# how an analyst would actually ask: "I saw `ntdsutil` in a log - what is
 # that?".
 COMMAND_TO_TECHNIQUE = {
     "ntdsutil": "T1003",
@@ -218,7 +218,7 @@ IOC_DATABASE: Dict[str, Dict] = {
 
 
 # ---------------------------------------------------------------------------
-# Tools — plain Python functions that AG2 will expose to the agent.
+# Tools - plain Python functions that AG2 will expose to the agent.
 #
 # Each tool returns a *structured* dict so the LLM can reason about the
 # data without us pre-formatting it. Use Annotated[...] to give AG2 the
@@ -231,7 +231,7 @@ def lookup_mitre_technique(
         str,
         (
             "MITRE ATT&CK technique ID, e.g. 'T1110' or 'T1003'. "
-            "Sub-technique IDs like 'T1003.001' are accepted — only the "
+            "Sub-technique IDs like 'T1003.001' are accepted - only the "
             "parent technique is looked up."
         ),
     ],
@@ -287,7 +287,7 @@ def check_ioc(
     key = (value or "").strip().lower()
     record = IOC_DATABASE.get(key)
     if record is None:
-        # `ok` is True because the tool worked correctly — there is simply
+        # `ok` is True because the tool worked correctly - there is simply
         # no record. `found` is the operationally relevant signal for the
         # LLM and the system prompt tells it to communicate the miss
         # honestly instead of inventing a verdict.
@@ -412,7 +412,7 @@ Operating rules:
 
 3. If the user asks about a command-line fragment or a known offensive
    tool name (e.g. 'ntdsutil', 'hydra', 'frp'), call
-   lookup_mitre_technique with the fragment as the argument — the tool
+   lookup_mitre_technique with the fragment as the argument - the tool
    knows how to map common tools to techniques.
 
 4. When the user mentions a threat actor and one of its known
@@ -433,9 +433,9 @@ Hello. I am the **CTI Triage Agent** for this lab.
 
 I can answer threat-intel questions by querying three local tools:
 
-- 🎯 **MITRE technique lookup** — `What is T1110?` or `I see ntdsutil in logs.`
-- 🌐 **IOC check** — `Is 185.243.115.84 suspicious?`
-- 🦹 **Threat actor profile** — `Tell me about Volt Typhoon.`
+- 🎯 **MITRE technique lookup** - `What is T1110?` or `I see ntdsutil in logs.`
+- 🌐 **IOC check** - `Is 185.243.115.84 suspicious?`
+- 🦹 **Threat actor profile** - `Tell me about Volt Typhoon.`
 
 Every fact I state should come from a tool call. Tool calls appear below
 as expandable **Steps** so you can verify exactly what I queried.

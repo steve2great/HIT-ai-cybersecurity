@@ -1,7 +1,7 @@
 [project]
 name = "lab4-defensive-cti-workflow"
 version = "0.1.0"
-description = "Lab 4 — Defensive multi-agent CTI workflow with AG2 and Chainlit"
+description = "Lab 4 - Defensive multi-agent CTI workflow with AG2 and Chainlit"
 readme = "README.md"
 requires-python = ">=3.11"
 

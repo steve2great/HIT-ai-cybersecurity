@@ -1,0 +1,22 @@
+services:
+  soc-copilot:
+    image: soc-copilot
+    build: .
+    ports:
+      - "8000:8000"
+    env_file:
+      - app/.env
+    environment:
+      - API_BASE_URL=https://api.groq.com/openai/v1
+      - MODEL=qwen/qwen3-32b
+      - PYTHONPATH=/app:/app/Project
+    volumes:
+      # mount the whole repo so source edits don't require rebuild
+      - ../:/app
+      - ./app/chainlit.md:/chainlit-runtime/chainlit.md:ro
+      # Chainlit UI config (disables the file-upload button; sets app name)
+      - ./app/.chainlit/config.toml:/chainlit-runtime/.chainlit/config.toml:ro
+    working_dir: /chainlit-runtime
+    command: >
+      chainlit run /app/Project/app/app.py
+      --host 0.0.0.0 --port 8000 --headless
