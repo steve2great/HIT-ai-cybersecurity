@@ -45,7 +45,7 @@ Open <http://localhost:8000>.
 
 ### 5.1 Replay incident (the demo button)
 
-Click **▶ Replay incident**. Five events stream through the pipeline:
+Click **Replay incident**. Five events stream through the pipeline:
 
 - 3 benign events → three "OK" decisions, no LLM call (audit-cheap).
 - 1 T1110.001 brute force from `185.243.115.84` → ALERT with high confidence.

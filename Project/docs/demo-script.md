@@ -39,7 +39,7 @@ window.
 
 > "Let me show it running."
 
-[Switch to `localhost:8000`. Click ▶ **Replay incident**.]
+[Switch to `localhost:8000`. Click **Replay incident**.]
 
 > "Five events are streaming through the pipeline. The first three are
 > benign - alice, bob, carol logging in from the office in business

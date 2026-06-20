@@ -1,6 +1,6 @@
 # Lab 2 - Anomaly Detection
 
-📓 **Deliverable:** [`lab2.ipynb`](lab2.ipynb) - fully executed notebook with embedded plots.
+**Deliverable:** [`lab2.ipynb`](lab2.ipynb) - fully executed notebook with embedded plots.
 
 ---
 

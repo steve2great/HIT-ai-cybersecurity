@@ -18,8 +18,8 @@ The agent must call a tool to answer factual questions - the system prompt
 explicitly forbids hallucinated ATT&CK / IOC / actor data. Every fact is
 traceable in the Chainlit UI as an expandable Step.
 
-📄 **Full agent spec:** [`app/agent/README.md`](app/agent/README.md)
-🧠 **Agent code:** [`app/agent/app.py`](app/agent/app.py)
+**Full agent spec:** [`app/agent/README.md`](app/agent/README.md)
+**Agent code:** [`app/agent/app.py`](app/agent/app.py)
 
 ---
 

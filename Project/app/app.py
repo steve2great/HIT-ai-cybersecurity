@@ -127,7 +127,7 @@ async def run_pipeline(event: dict[str, Any]) -> None:
 
     # 4. surface the headline message
     headline = (
-        f"### 🚨 ALERT - {alert.technique_id} {alert.technique_name}\n"
+        f"### ALERT - {alert.technique_id} {alert.technique_name}\n"
         f"**Confidence:** {alert.confidence}  |  **Anomaly score:** {score:.3f}  |  "
         f"**Tactic:** {alert.tactic}\n\n"
         f"{reply_text}\n\n"
@@ -155,7 +155,7 @@ async def on_chat_start() -> None:
     except FileNotFoundError as e:
         await cl.Message(
             author="SOC-Copilot",
-            content=f"⚠️ {e}\n\nRun `notebooks/02_isolation_forest.ipynb` first to train the model.",
+            content=f"{e}\n\nRun `notebooks/02_isolation_forest.ipynb` first to train the model.",
         ).send()
         return
 
@@ -164,11 +164,11 @@ async def on_chat_start() -> None:
     except Exception as e:
         await cl.Message(
             author="SOC-Copilot",
-            content=f"⚠️ Could not initialise LLM agent: {e}\n\nMake sure `API_KEY` is set in `.env`.",
+            content=f"Could not initialise LLM agent: {e}\n\nMake sure `API_KEY` is set in `.env`.",
         ).send()
 
     actions = [
-        cl.Action(name="replay", payload={"action": "run"}, label="▶ Replay incident",
+        cl.Action(name="replay", payload={"action": "run"}, label="Replay incident",
                   tooltip="Stream the scripted attack timeline through the pipeline."),
     ]
     await cl.Message(
@@ -176,7 +176,7 @@ async def on_chat_start() -> None:
         content=(
             "**SOC-Copilot ready.**\n\n"
             "Try one of these:\n"
-            "- Click ▶ **Replay incident** below for the canned demo.\n"
+            "- Click **Replay incident** below for the canned demo.\n"
             "- Paste a JSON auth event (one line) and I will score it.\n"
             "- Or ask a question (e.g. `what is T1110.003?`).\n"
         ),
@@ -187,7 +187,7 @@ async def on_chat_start() -> None:
 @cl.action_callback("replay")
 async def on_replay(_action: cl.Action) -> None:
     await cl.Message(author="SOC-Copilot",
-                     content=f"▶ Replaying **{len(DEMO_TIMELINE)} events**...").send()
+                     content=f"Replaying **{len(DEMO_TIMELINE)} events**...").send()
     for ev in DEMO_TIMELINE:
         await cl.Message(author="event-stream",
                          content=f"`{ev['timestamp']}  {ev['user']}@{ev['source_ip']}  "
@@ -222,7 +222,7 @@ async def on_message(message: cl.Message) -> None:
     if triage is None:
         await cl.Message(author="SOC-Copilot",
                          content="LLM not available. Paste a JSON event to score, "
-                                 "or click ▶ Replay incident.").send()
+                                 "or click Replay incident.").send()
         return
     try:
         reply = await triage.a_generate_reply(messages=[{"role": "user", "content": text}])

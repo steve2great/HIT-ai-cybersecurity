@@ -23,7 +23,7 @@
 |---------|-------|
 | [SOC-Copilot](Project/) | Type-2 integrated project - Isolation Forest anomaly detection + MITRE ATT&CK mapper + LLM triage agent, exposed via Chainlit UI |
 
-🎬 **Demo video (YouTube):** *link will be added after recording - see [`Project/docs/demo-script.md`](Project/docs/demo-script.md)*
+**Demo video (YouTube):** *link will be added after recording - see [`Project/docs/demo-script.md`](Project/docs/demo-script.md)*
 
 ---
 

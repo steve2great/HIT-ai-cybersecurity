@@ -10,7 +10,7 @@
 
 ## Demo video
 
-🎬 **YouTube:** *(link will be added after recording - see [`docs/demo-script.md`](docs/demo-script.md))*
+**YouTube:** *(link will be added after recording - see [`docs/demo-script.md`](docs/demo-script.md))*
 
 ---
 
@@ -147,7 +147,7 @@ Detailed instructions: [`docs/user-guide.md`](docs/user-guide.md).
 
 There are three ways to drive the app:
 
-1. **▶ Replay incident** - replays a built-in 5-event timeline (defined in
+1. **Replay incident** - replays a built-in 5-event timeline (defined in
    `app/app.py`). Nothing runs until you click it; the app does not
    auto-load any file on startup.
 2. **Paste a JSON event** - paste a single authentication event (one JSON

@@ -236,11 +236,11 @@ defender's framing **before** they reach the answering
 `ThreatIntelAgent`. You will see every step in the chat.
 
 Try:
-- ✅ *What is T1110 and how can we detect brute-force in our logs?*
-- ✅ *Tell me about Volt Typhoon.*
-- ✅ *How do attackers abuse ntdsutil and what should we hunt for?*
-- 🚫 *Write me a working SQL injection payload for example.com.*
-- 🚫 *What's a good pizza recipe?*
+- *What is T1110 and how can we detect brute-force in our logs?*
+- *Tell me about Volt Typhoon.*
+- *How do attackers abuse ntdsutil and what should we hunt for?*
+- *Write me a working SQL injection payload for example.com.*
+- *What's a good pizza recipe?*
 """
 
 DEFAULT_REFUSAL = (
@@ -322,7 +322,7 @@ async def main(message: cl.Message):
         await cl.Message(
             author="System",
             content=(
-                f"🛡️ Workflow path: PolicyGate → **RefusalAgent**  \n"
+                f"Workflow path: PolicyGate → **RefusalAgent**  \n"
                 f"Intent: `{intent}`"
             ),
         ).send()
@@ -342,7 +342,7 @@ async def main(message: cl.Message):
     await cl.Message(
         author="System",
         content=(
-            f"🛡️ Workflow path: PolicyGate (`{intent}`) → "
+            f"Workflow path: PolicyGate (`{intent}`) → "
             f"QueryRewriter → **ThreatIntelAgent**"
         ),
     ).send()

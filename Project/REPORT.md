@@ -229,7 +229,7 @@ the executed notebook.
 Stage 7/8 deliverable: a Chainlit web app at `app/app.py`. Three
 interaction modes:
 
-1. **▶ Replay incident** - streams a scripted 5-event timeline (3 benign
+1. **Replay incident** - streams a scripted 5-event timeline (3 benign
    + 1 T1110.001 + 1 T1078) through the full pipeline. Used in the demo
    video.
 2. **JSON paste** - analyst pastes a single event in JSON; the pipeline

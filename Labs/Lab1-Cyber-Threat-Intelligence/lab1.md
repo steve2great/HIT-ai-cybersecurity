@@ -6,7 +6,7 @@
 ## 2. Source CTI Report
 **Microsoft Threat Intelligence - *"Volt Typhoon targets US critical infrastructure with living-off-the-land techniques"*** (May 24, 2023)
 
-🔗 https://www.microsoft.com/en-us/security/blog/2023/05/24/volt-typhoon-targets-us-critical-infrastructure-with-living-off-the-land-techniques/
+https://www.microsoft.com/en-us/security/blog/2023/05/24/volt-typhoon-targets-us-critical-infrastructure-with-living-off-the-land-techniques/
 
 Companion advisory:
 - NSA / CISA / FBI joint advisory: https://media.defense.gov/2023/May/24/2003229517/-1/-1/0/CSA_Living_off_the_Land.PDF

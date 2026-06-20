@@ -433,9 +433,9 @@ Hello. I am the **CTI Triage Agent** for this lab.
 
 I can answer threat-intel questions by querying three local tools:
 
-- 🎯 **MITRE technique lookup** - `What is T1110?` or `I see ntdsutil in logs.`
-- 🌐 **IOC check** - `Is 185.243.115.84 suspicious?`
-- 🦹 **Threat actor profile** - `Tell me about Volt Typhoon.`
+- **MITRE technique lookup** - `What is T1110?` or `I see ntdsutil in logs.`
+- **IOC check** - `Is 185.243.115.84 suspicious?`
+- **Threat actor profile** - `Tell me about Volt Typhoon.`
 
 Every fact I state should come from a tool call. Tool calls appear below
 as expandable **Steps** so you can verify exactly what I queried.
