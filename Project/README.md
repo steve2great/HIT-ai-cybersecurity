@@ -10,7 +10,7 @@
 
 ## Demo video
 
-**YouTube:** *(link will be added after recording - see [`docs/demo-script.md`](docs/demo-script.md))*
+**YouTube:** <https://youtu.be/qtbS-wq9wso>
 
 ---
 
